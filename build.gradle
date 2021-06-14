@@ -1,0 +1,44 @@
+buildscript {
+  ext.hilt_version = '2.37'
+  ext.booster_version = '3.1.0'
+  repositories {
+    google()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+    maven {
+      url 'https://dl.bintray.com/wenchieh/maven'
+    }
+  }
+  dependencies {
+    classpath "com.android.tools.build:gradle:7.1.0-alpha02"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10"
+    //依赖注入
+    classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+    classpath "com.didiglobal.booster:booster-gradle-plugin:$booster_version"
+    //静态分析工具
+    classpath "com.didiglobal.booster:booster-task-analyser:$booster_version"
+    //webView预加载
+    classpath "com.didiglobal.booster:booster-transform-webview:$booster_version"
+    //多线程优化
+    classpath "com.didiglobal.booster:booster-transform-thread:$booster_version"
+    //Sp优化ANR
+    classpath "com.didiglobal.booster:booster-transform-shared-preferences:$booster_version"
+    //无用资源去除
+    classpath "com.didiglobal.booster:booster-task-resource-deredundancy:$booster_version"
+    classpath "com.didiglobal.booster:booster-transform-r-inline:$booster_version"
+    classpath "com.didiglobal.booster:booster-task-compression-cwebp:$booster_version"
+    classpath "com.didiglobal.booster:booster-task-compression-pngquant:$booster_version"
+    classpath "com.didiglobal.booster:booster-task-compression-processed-res:$booster_version"
+    //修复覆盖安装在资源无法读取问题
+    classpath "com.didiglobal.booster:booster-transform-res-check:$booster_version"
+    //处理系统Crash
+    classpath "com.didiglobal.booster:booster-transform-activity-thread:$booster_version"
+    //修复安卓7的Toast闪退
+    classpath "com.didiglobal.booster:booster-transform-toast:$booster_version"
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
+apply plugin: 'com.didiglobal.booster'

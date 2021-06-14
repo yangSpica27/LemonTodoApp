@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="spica.lemon.plan">
+
+    <application
+        android:theme="@style/Theme.LemonTodo"
+        android:allowBackup="false"
+        android:name=".App"
+        android:icon="@drawable/ic_schedule"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:theme="@style/Theme.LemonTodo.NoActionBar"
+            android:name=".ui.main.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
