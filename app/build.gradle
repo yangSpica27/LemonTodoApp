@@ -76,6 +76,8 @@ dependencies {
   implementation("io.coil-kt:coil:1.2.2")
   //日历
   implementation 'com.haibin:calendarview:3.7.1'
-
-
+  //画线根据类
+  implementation "com.github.fondesa:recycler-view-divider:3.5.0"
+  //motion动画封装
+  implementation "com.github.skydoves:transformationlayout:1.0.9"
 }

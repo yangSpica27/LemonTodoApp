@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import spica.lemon.plan.R
 import spica.lemon.plan.databinding.FragmentGalleryBinding
 
 class GalleryFragment : Fragment() {

@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:theme="@style/Theme.LemonTodo.NoActionBar"
+            android:name=".ui.modifyplan.ModifyActivity" />
     </application>
 
 </manifest>
