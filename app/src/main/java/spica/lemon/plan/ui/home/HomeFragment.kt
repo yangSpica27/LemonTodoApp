@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.drakeet.multitype.MultiTypeAdapter
+import com.zackratos.ultimatebarx.ultimatebarx.UltimateBarX
 import spica.lemon.plan.base.BaseFragment
 import spica.lemon.plan.databinding.FragmentHomeBinding
 import spica.lemon.plan.model.Plan
@@ -25,6 +26,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
   override fun init() {
+    with(viewBinding.container) {
+      setPadding(paddingLeft, paddingTop + UltimateBarX.getStatusBarHeight(), paddingRight, paddingBottom)
+    }
     adapter = MultiTypeAdapter(items)
     adapter.register(HomeListDelegate(requireActivity()))
     adapter.setHasStableIds(true)

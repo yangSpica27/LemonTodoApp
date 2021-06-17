@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 /**
  * 日程安排的小单元
  */
-@Entity
+@Entity(tableName = "plan")
 data class Plan(
   @PrimaryKey(autoGenerate = true)
   var id: Long? = null,
@@ -15,5 +15,5 @@ data class Plan(
   var description: String = "",
   var hasDone:Boolean =  false,
   var label: String = "普通任务",
-  var lv:Int = 0,
+  var lv:Int = 0
 )

@@ -3,8 +3,6 @@ package spica.lemon.plan.ui.modifyplan
 import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
-import com.skydoves.transformationlayout.TransformationCompat
-import com.skydoves.transformationlayout.TransformationLayout
 import spica.lemon.plan.base.BindingActivity
 import spica.lemon.plan.databinding.ActivityModifyPlanBinding
 
@@ -21,9 +19,9 @@ class ModifyActivity : BindingActivity<ActivityModifyPlanBinding>() {
 
   companion object {
 
-    fun startActivity(view: TransformationLayout, context: Activity) {
+    fun startActivity(context: Activity) {
       val intent = Intent(context, ModifyActivity::class.java)
-      TransformationCompat.startActivity(view, intent)
+      context.startActivity(intent)
     }
   }
 

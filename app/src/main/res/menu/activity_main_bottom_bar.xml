@@ -21,17 +21,5 @@
         android:title="Search"
         app:showAsAction="always"/>
 
-    <item
-        android:title=""
-        android:checkable="false"
-        android:checked="false"
-        app:showAsAction="always"
-        android:enabled="false"/>
 
-    <item
-        android:title=""
-        android:checkable="false"
-        android:checked="false"
-        app:showAsAction="always"
-        android:enabled="false"/>
 </menu>
