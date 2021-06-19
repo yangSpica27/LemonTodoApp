@@ -18,7 +18,7 @@
         </activity>
         <activity
             android:theme="@style/Theme.LemonTodo.NoActionBar"
-            android:name=".ui.modifyplan.ModifyActivity" />
+            android:name=".ui.modifyplan.ModifyScheduleActivity" />
         <activity
             android:theme="@style/Theme.LemonTodo.NoActionBar"
             android:name=".ui.splash.SplashActivity">

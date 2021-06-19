@@ -1,60 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
     android:layout_marginStart="24dp"
-    android:layout_marginTop="15dp"
+    android:transitionName="shared_element_container"
     android:layout_marginEnd="24dp"
-    android:layout_marginBottom="15dp"
-    android:background="@drawable/bg_item_rounded"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_tag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/bg_tag"
-        android:paddingStart="15dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="15dp"
-        android:paddingBottom="10dp"
-        android:text="已完成"
-        android:textColor="@color/tan"
-        android:textSize="11sp"
-        tools:ignore="SmallSp" />
-
-    <TextView
-        android:id="@+id/text_schedule"
+    <LinearLayout
+        android:id="@+id/box_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="24dp"
-        android:ellipsize="end"
-        android:lineSpacingMultiplier="1.2"
-        android:lines="2"
-        android:maxLines="2"
-        android:text="旅行需要准备的物品"
-        android:textColor="@color/dark_late_gray"
-        android:textStyle="bold" />
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:background="@drawable/bg_item_rounded"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_schedule_time"
+        <TextView
+            android:id="@+id/text_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_tag"
+            android:paddingStart="15dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="10dp"
+            android:text="已完成"
+            android:textColor="@color/tan"
+            android:textSize="11sp"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/text_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="24dp"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.2"
+            android:lines="2"
+            android:maxLines="2"
+            android:text="旅行需要准备的物品"
+            android:textColor="@color/dark_late_gray"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_schedule_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.2"
+            android:maxLines="1"
+            android:text="12.00 - 24.00"
+            android:textColor="@color/light_gray"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_plan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
-        android:ellipsize="end"
-        android:lineSpacingMultiplier="1.2"
-        android:maxLines="1"
-        android:text="12.00 - 24.00"
-        android:textColor="@color/light_gray"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/box_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="身份证/护照/学生证" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:text="晴雨伞" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:text="便于携带的小包" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:text="换洗衣裤" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="12dp"
+            android:text="毛巾" />
+
+    </LinearLayout>
+</FrameLayout>

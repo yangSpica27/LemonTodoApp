@@ -26,8 +26,8 @@ class MainPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
     }
 
     companion object {
-        private const val HOME = 0
-        private const val GALLERY = 1
-        private const val PROFILE = 2
+        const val HOME = 0
+        const val GALLERY = 1
+        const val PROFILE = 2
     }
 }

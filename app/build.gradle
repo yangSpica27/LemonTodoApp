@@ -59,8 +59,6 @@ dependencies {
   implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
   implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
-  //全屏抽屉
-  implementation 'com.drakeet.drawer:drawer:1.0.3'
   //multiType
   implementation 'com.drakeet.multitype:multitype:4.2.0'
   //依赖注入
@@ -75,10 +73,8 @@ dependencies {
   implementation("io.coil-kt:coil:1.2.2")
   //日历
   implementation 'com.haibin:calendarview:3.7.1'
-  //画线根据类
+  //画线工具类
   implementation "com.github.fondesa:recycler-view-divider:3.5.0"
-  //motion动画封装
-  implementation "com.github.skydoves:transformationlayout:1.0.9"
-  //状态栏
-  implementation 'com.zackratos.ultimatebarx:ultimatebarx:0.6.0'
+
+
 }

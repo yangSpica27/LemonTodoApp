@@ -17,114 +17,59 @@
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <TextView
-            android:id="@+id/tv_date"
-            android:layout_width="0dp"
+        <com.google.android.material.appbar.MaterialToolbar
+            style="@style/ToolbarStyle"
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/white_smoke"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:text="@string/please_select_date" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="单选模式"
-            android:layout_marginEnd="12dp"
-            android:textColor="@color/white_smoke" />
-
-        <ImageButton
-            android:id="@+id/btnLeft"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:backgroundTint="@color/white_smoke"
-            android:background="@drawable/ic_arrow_left_24dp"
-            tools:ignore="ContentDescription" />
-
-        <ImageButton
-            android:id="@+id/btnRight"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="12dp"
-            android:backgroundTint="@color/white_smoke"
-            tools:ignore="ContentDescription"
-            android:background="@drawable/ic_arrow_right_24dp" />
+            app:titleTextColor="@color/white_smoke"
+            app:navigationIcon="@drawable/ic_dashboard"
+            app:menu="@menu/main"
+            app:title="柠檬Todo" />
 
     </LinearLayout>
 
-    <com.haibin.calendarview.CalendarLayout
-        android:id="@+id/calendar_layout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentPanel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:default_status="shrink"
-        app:calendar_content_view_id="@+id/contentPanel"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_half_rounded_light"
+        android:layout_weight="1">
 
-        <com.haibin.calendarview.CalendarView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:calendar_padding="10dp"
-            app:day_text_size="20sp"
-            app:selected_theme_color="@color/teal_200"
-            app:selected_text_color="@color/white_smoke"
-            app:week_text_size="20sp"
-            app:current_day_text_color="@color/coral"
-            app:current_day_lunar_text_color="@color/coral"
-            app:current_month_text_color="@color/white_smoke"
-            app:week_background="@color/steel_blue"
-            app:week_text_color="@color/white_smoke"
-            app:selected_lunar_text_color="@color/white_smoke"
-            app:month_view_show_mode="mode_only_current"
-            app:week_view_scrollable="true"
-            app:scheme_text="假" />
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/contentPanel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_half_rounded_light"
-            android:layout_weight="1">
-
-            <androidx.core.widget.NestedScrollView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                android:layout_height="match_parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/tv_captain"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/today_task"
+                    android:textColor="@color/dark_late_gray"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:padding="24dp" />
 
-                    <TextView
-                        android:id="@+id/tv_captain"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:text="@string/today_task"
-                        android:textColor="@color/dark_late_gray"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:padding="24dp" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/tv_captain"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:nestedScrollingEnabled="false"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintTop_toBottomOf="@id/tv_captain"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
 
-            </androidx.core.widget.NestedScrollView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.haibin.calendarview.CalendarLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
