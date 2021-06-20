@@ -7,7 +7,7 @@ import com.fondesa.recyclerviewdivider.dividerBuilder
 import spica.lemon.plan.R
 import spica.lemon.plan.base.BaseFragment
 import spica.lemon.plan.databinding.FragmentHomeBinding
-import spica.lemon.plan.model.Plan
+import spica.lemon.plan.model.Schedule
 import spica.lemon.plan.view.FolderDialog
 
 /**
@@ -17,7 +17,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
   private lateinit var adapter: MultiTypeAdapter
 
-  private val items: ArrayList<Plan> = arrayListOf()
+  private val items: ArrayList<Schedule> = arrayListOf()
 
   private val homeViewModel: HomeViewModel by viewModels()
 

@@ -7,17 +7,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.ItemViewDelegate
 import spica.lemon.plan.databinding.ItemScheduleBinding
-import spica.lemon.plan.model.Plan
+import spica.lemon.plan.model.Schedule
 import spica.lemon.plan.ui.modifyplan.ModifyScheduleActivity
 
 /**
  * 主页列表
  */
-class HomeListDelegate(private val activity: Activity) : ItemViewDelegate<Plan, HomeListDelegate.ViewHolder>() {
+class HomeListDelegate(private val activity: Activity) : ItemViewDelegate<Schedule, HomeListDelegate.ViewHolder>() {
 
   class ViewHolder(val binding: ItemScheduleBinding) : RecyclerView.ViewHolder(binding.root)
 
-  override fun onBindViewHolder(holder: ViewHolder, item: Plan) {
+  override fun onBindViewHolder(holder: ViewHolder, item: Schedule) {
     holder.binding.textTag.text = item.label
     holder.binding.textSchedule.text = item.description
     holder.binding.root.setOnClickListener {
@@ -30,7 +30,7 @@ class HomeListDelegate(private val activity: Activity) : ItemViewDelegate<Plan, 
     return ViewHolder(binding)
   }
 
-  override fun getItemId(item: Plan): Long {
+  override fun getItemId(item: Schedule): Long {
     return item.id ?: 100L;
   }
 }

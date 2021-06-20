@@ -6,21 +6,21 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import spica.lemon.plan.model.Plan
+import spica.lemon.plan.model.Schedule
 
 @Dao
 interface PlanDao {
 
     @Insert
-    suspend fun insertPlan(plan: Plan)
+    suspend fun insertPlan(schedule: Schedule)
 
 
     @Delete
-    suspend fun deletePlan(plan: Plan)
+    suspend fun deletePlan(schedule: Schedule)
 
 
     @Query("SELECT * FROM `plan` ORDER BY lv ")
-    suspend fun getAllPLan(): LiveData<List<Plan>>
+    suspend fun getAllPLan(): LiveData<List<Schedule>>
 
 
 }

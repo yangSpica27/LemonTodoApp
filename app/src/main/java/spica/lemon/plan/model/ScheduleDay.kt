@@ -3,10 +3,13 @@ package spica.lemon.plan.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "plan_item")
-data class PlanItem(
+/**
+ * 日程单元
+ */
+@Entity(tableName = "table_day")
+data class ScheduleDay(
   @PrimaryKey(autoGenerate = true)
   var id: Long? = null,
-  var hasDone: Boolean = true,
-  var info: String = ""
+  val title: String = "",
+  val createDate: String,
 )
