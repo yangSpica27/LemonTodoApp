@@ -33,6 +33,14 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:text="6月" />
 
+        <ImageView
+            android:id="@+id/btn_calendar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_calendar" />
+
         <ImageButton
             android:id="@+id/btn_plus"
             android:layout_width="24dp"
@@ -47,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        app:calendar_padding="10dp"
+        app:calendar_padding="12dp"
         app:calendar_match_parent="true"
         app:day_text_size="16sp"
         app:current_month_lunar_text_color="@color/gray_7"
@@ -61,8 +69,7 @@
         app:week_view="spica.lemon.plan.view.GalleryWeekView"
         app:current_day_text_color="@color/coral"
         app:current_day_lunar_text_color="@color/coral"
-        app:week_background="@color/steel_blue"
-        app:week_text_color="@color/white_smoke"
+        app:week_text_color="@color/gray_7"
         app:month_view_show_mode="mode_fix"
         app:week_view_scrollable="true"
         app:scheme_text="假" />
