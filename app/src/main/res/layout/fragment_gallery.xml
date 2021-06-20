@@ -43,17 +43,20 @@
     </LinearLayout>
 
     <com.haibin.calendarview.CalendarView
+        android:id="@+id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:calendar_padding="10dp"
         app:calendar_match_parent="true"
-        app:day_text_size="20sp"
+        app:day_text_size="16sp"
+        app:current_month_lunar_text_color="@color/gray_7"
         app:week_bar_view="spica.lemon.plan.view.GalleryWeekBar"
         app:selected_theme_color="@color/teal_200"
         app:selected_lunar_text_color="@color/white_smoke"
         app:selected_text_color="@color/white_smoke"
         app:week_text_size="12sp"
+        app:week_line_background="@color/gray_7"
         app:month_view="spica.lemon.plan.view.GalleryMonthView"
         app:week_view="spica.lemon.plan.view.GalleryWeekView"
         app:current_day_text_color="@color/coral"

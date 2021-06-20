@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.BlurMaskFilter
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Rect
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.MonthView
 import spica.lemon.plan.tools.dp
@@ -12,7 +13,7 @@ class GalleryMonthView(context: Context) : MonthView(context) {
 
   private val mRectPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
     style = Paint.Style.STROKE
-    strokeWidth = 0.2F.dp
+    strokeWidth = 0.5F.dp
     color = -0x77101011
   }
 
@@ -58,34 +59,52 @@ class GalleryMonthView(context: Context) : MonthView(context) {
   }
 
   override fun onDrawText(canvas: Canvas, calendar: Calendar, x: Int, y: Int, hasScheme: Boolean, isSelected: Boolean) {
+
     canvas.drawRect(x.toFloat(), y.toFloat(), (x + mItemWidth).toFloat(), (y + mItemHeight).toFloat(), mRectPaint)
     val cx = x + mItemWidth / 2
-    val top = y - mItemHeight / 6
+
+    val rect = Rect() //日期数字测量
+    val rect2 = Rect() //农历节日的策略
+
+    mSelectTextPaint.getTextBounds(calendar.day.toString(), 0, calendar.day.toString().length, rect)
+    mSelectedLunarTextPaint.getTextBounds(calendar.lunar.toString(), 0, calendar.lunar.toString().length, rect2)
 
     val isInRange = isInRange(calendar)
 
     when {
       isSelected -> {
         canvas.drawText(
-          calendar.day.toString(), cx.toFloat(), mTextBaseLine + top,
+          calendar.day.toString(), cx.toFloat(),
+          (y + rect.height() + 8.dp).toFloat(),
           mSelectTextPaint
         )
-        canvas.drawText(calendar.lunar, cx.toFloat(), mTextBaseLine + y + mItemHeight / 10, mSelectedLunarTextPaint)
+        canvas.drawText(
+          calendar.lunar, cx.toFloat(),
+          (y + rect.height() + rect2.height() + 8.dp + 8.dp).toFloat(),
+          mSelectedLunarTextPaint
+        )
       }
       hasScheme -> {
         canvas.drawText(
-          calendar.day.toString(), cx.toFloat(), mTextBaseLine + top,
+          calendar.day.toString(),
+          cx.toFloat(),
+          (y + rect.height() + 8.dp).toFloat(),
           if (calendar.isCurrentMonth && isInRange) mSchemeTextPaint else mOtherMonthTextPaint
         )
-        canvas.drawText(calendar.lunar, cx.toFloat(), mTextBaseLine + y + mItemHeight / 10, mCurMonthLunarTextPaint)
+        canvas.drawText(
+          calendar.lunar, cx.toFloat(),
+          (y + rect.height() + rect2.height() + 8.dp + 8.dp).toFloat(),
+          mCurMonthLunarTextPaint
+        )
       }
       else -> {
         canvas.drawText(
-          calendar.day.toString(), cx.toFloat(), mTextBaseLine + top,
+          calendar.day.toString(), cx.toFloat(), (y + rect.height() + 8.dp).toFloat(),
           if (calendar.isCurrentDay) mCurDayTextPaint else if (calendar.isCurrentMonth && isInRange) mCurMonthTextPaint else mOtherMonthTextPaint
         )
         canvas.drawText(
-          calendar.lunar, cx.toFloat(), mTextBaseLine + y + mItemHeight / 10,
+          calendar.lunar, cx.toFloat(),
+          (y + rect.height() + rect2.height() + 8.dp + 8.dp).toFloat(),
           if (calendar.isCurrentDay && isInRange) mCurDayLunarTextPaint else if (calendar.isCurrentMonth) mCurMonthLunarTextPaint else mOtherMonthLunarTextPaint
         )
       }
