@@ -53,7 +53,7 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding>() {
         } else {
           viewBinding.btnCalendar.visibility = View.GONE
         }
-        viewBinding.tvToolbarMonth.text = "${calendar.month}月"
+        viewBinding.tvToolbarMonth.text = "${calendar.year}年${calendar.month}月"
       }
 
     })

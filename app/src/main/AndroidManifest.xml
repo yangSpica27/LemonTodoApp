@@ -6,9 +6,19 @@
         android:theme="@style/Theme.LemonTodo"
         android:allowBackup="false"
         android:name=".App"
+        android:resizeableActivity="true"
         android:icon="@drawable/ic_schedule"
         android:label="@string/app_name"
         android:supportsRtl="true">
+        <!--适配华为（huawei）刘海屏-->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true"/>
+        <!--适配小米（xiaomi）刘海屏-->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+
         <activity
             android:theme="@style/Theme.LemonTodo.NoActionBar"
             android:name=".ui.main.MainActivity"
@@ -28,6 +38,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

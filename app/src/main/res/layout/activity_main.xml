@@ -15,7 +15,7 @@
         android:id="@+id/bottom_nav_bar"
         android:layout_height="wrap_content"
         app:labelVisibilityMode="unlabeled"
-        android:background="@color/steel_blue"
+        android:background="@color/blue_7"
         app:itemTextColor="@color/white_smoke"
         app:itemIconTint="@color/white_smoke"
         app:layout_anchorGravity="bottom"

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
-        android:background="@color/steel_blue"
+        android:background="@color/blue_7"
         android:orientation="horizontal">
 
         <TextView
@@ -30,8 +30,7 @@
             android:layout_weight="1"
             android:layout_marginStart="12dp"
             android:textColor="@color/white_smoke"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:text="6月" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
         <ImageView
             android:id="@+id/btn_calendar"
@@ -60,7 +59,7 @@
         app:day_text_size="16sp"
         app:current_month_lunar_text_color="@color/gray_7"
         app:week_bar_view="spica.lemon.plan.view.GalleryWeekBar"
-        app:selected_theme_color="@color/teal_200"
+        app:selected_theme_color="#1890ff"
         app:selected_lunar_text_color="@color/white_smoke"
         app:selected_text_color="@color/white_smoke"
         app:week_text_size="12sp"

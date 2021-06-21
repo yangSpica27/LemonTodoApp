@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.gyf.immersionbar.ktx.immersionBar
 import spica.lemon.plan.R
 import spica.lemon.plan.base.BindingActivity
 import spica.lemon.plan.databinding.ActivitySplashBinding
@@ -29,6 +30,9 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>() {
   lateinit var colors: IntArray
 
   override fun initializer() {
+    immersionBar {
+      transparentBar()
+    }
     evaluator = ArgbEvaluator()
     context = this
     initColorsList()
@@ -49,7 +53,7 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>() {
     colors = intArrayOf(
       context.getColor(R.color.coral),
       context.getColor(R.color.late_gray),
-      context.getColor(R.color.teal_200)
+      context.getColor(R.color.blue_2)
     )
   }
 
