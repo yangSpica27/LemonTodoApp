@@ -27,6 +27,7 @@
             android:text="待办集" />
 
         <ImageView
+            android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_close" />
@@ -37,5 +38,12 @@
         android:layout_width="match_parent"
         android:layout_height="2px"
         android:background="#C8C8C8" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical" />
 
 </LinearLayout>
