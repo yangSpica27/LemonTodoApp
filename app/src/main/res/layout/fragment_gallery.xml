@@ -63,6 +63,8 @@
         app:selected_lunar_text_color="@color/white_smoke"
         app:selected_text_color="@color/white_smoke"
         app:week_text_size="12sp"
+        app:scheme_month_text_color="@color/black"
+        app:scheme_lunar_text_color="@color/white_smoke"
         app:week_line_background="@color/gray_7"
         app:month_view="spica.lemon.plan.view.GalleryMonthView"
         app:week_view="spica.lemon.plan.view.GalleryWeekView"
@@ -70,7 +72,6 @@
         app:current_day_lunar_text_color="@color/coral"
         app:week_text_color="@color/gray_7"
         app:month_view_show_mode="mode_fix"
-        app:week_view_scrollable="true"
-        app:scheme_text="假" />
+        app:week_view_scrollable="true" />
 
 </LinearLayout>
