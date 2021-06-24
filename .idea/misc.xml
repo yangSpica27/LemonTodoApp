@@ -6,21 +6,26 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable-v24/ic_avatar.xml" value="0.1665" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/bg_half_rounded_light.xml" value="0.167" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/bg_half_rounded_white.xml" value="0.147" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/bg_item_rounded.xml" value="0.1935" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/bg_transparent.xml" value="0.167" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/ic_arrow_right_24dp.xml" value="0.1665" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/ic_calendar.xml" value="0.1915" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/ic_config.xml" value="0.1935" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/ic_folder.xml" value="0.167" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/ic_plus.xml" value="0.167" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/ic_schedule.xml" value="0.1935" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/planets_book.xml" value="0.167" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/right_half_circle.xml" value="0.167" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/drawable/text_round_backgound.xml" value="0.167" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/activity_about.xml" value="0.2234375" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/activity_login.xml" value="0.2234375" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/activity_modify_plan.xml" value="0.2234375" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/activity_splash.xml" value="0.2234375" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/app_bar_main.xml" value="0.2015625" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/content_drawer.xml" value="0.2234375" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/content_main.xml" value="0.2015625" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/dialog_login.xml" value="0.2234375" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/fragment_first.xml" value="0.2234375" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/fragment_gallery.xml" value="0.2" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/fragment_home.xml" value="0.2234375" />
@@ -31,6 +36,7 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/item_schedule.xml" value="0.16" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/layout.xml" value="0.2234375" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/layout_folder.xml" value="0.264" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/layout_home_setting.xml" value="0.264" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/nav_header_main.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/view_setting_item.xml" value="0.2" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Plan/app/src/main/res/layout/week_bar.xml" value="0.2234375" />
