@@ -31,6 +31,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
   private lateinit var folderDialog: MaterialDialog
 
+
   private val profileBalloon by lazy {
     Balloon.Builder(requireContext())
       .setLifecycleOwner(viewLifecycleOwner)
