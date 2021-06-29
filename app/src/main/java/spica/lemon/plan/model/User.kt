@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class User(
   @PrimaryKey(autoGenerate = false)
-  var id: Long = 0x01,
+  var id: Long = 1,
   var userName: String = "编辑您的名称",//名称
   var avatar: String = "default_avatar.jpg",//头像
   var emial: String = "", //电邮

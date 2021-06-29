@@ -1,12 +1,9 @@
 package spica.lemon.plan.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import com.squareup.moshi.JsonClass
 
-@Entity(tableName = "table_schedule_item")
+@JsonClass(generateAdapter = true)
 data class ScheduleItem(
-  @PrimaryKey(autoGenerate = true)
-  var id: Long? = null,
-  var hasDone: Boolean = true,
+  var hasDone: Boolean = false,
   var info: String = ""
 )

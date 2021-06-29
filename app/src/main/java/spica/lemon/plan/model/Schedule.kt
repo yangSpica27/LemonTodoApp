@@ -2,19 +2,23 @@ package spica.lemon.plan.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import spica.lemon.plan.persistence.ChildScheduleConverts
 
 /**
  * 日程安排的大单元
  */
 @Entity
+@TypeConverters(ChildScheduleConverts::class)
 data class Schedule(
   @PrimaryKey(autoGenerate = true)
-  var id: Long? = null,
-  val dIdLong:Long,
-  var items: List<ScheduleItem> = listOf(),
-  var title: String = "标题",
-  var description: String = "",
-  var hasDone: Boolean = false,
-  var label: String = "普通任务",
-  var lv: Int = 0
+  var id: Long? = null,//自动生成的id
+  var title: String = "标题",//标题
+  var description: String = "",//描述
+  var hasDone: Boolean = false,//是否完成
+  var label: String = "普通任务",//标签
+  var labelColor: Int,//标签颜色
+  var childSchedules: List<ScheduleItem>,//子任务
+  var lv: Int = 0,//重要等级
+  var date: String //时间
 )
