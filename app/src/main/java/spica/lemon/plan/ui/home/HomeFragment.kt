@@ -9,6 +9,7 @@ import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.drakeet.multitype.MultiTypeAdapter
 import com.fondesa.recyclerviewdivider.dividerBuilder
+import com.skydoves.balloon.Balloon
 import spica.lemon.plan.R
 import spica.lemon.plan.base.BaseFragment
 import spica.lemon.plan.databinding.FragmentHomeBinding
@@ -28,8 +29,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
   private lateinit var dialogBinding: LayoutFolderBinding
 
-
   private lateinit var folderDialog: MaterialDialog
+
+
+  private val profileBalloon by lazy {
+    Balloon.Builder(requireContext())
+      .setLifecycleOwner(viewLifecycleOwner)
+      .setLayout(R.layout.layout_home_setting)
+      .setWidth(400)
+      .setCornerRadius(4f)
+      .build()
+  }
 
   override fun setupViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentHomeBinding =
     FragmentHomeBinding.inflate(inflater, container, false)
@@ -50,6 +60,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
       when (it.itemId) {
         R.id.action_folder -> {
           folderDialog.show()
+          return@setOnMenuItemClickListener true
+        }
+        R.id.action_settings -> {
+
+          profileBalloon.show(viewBinding.root)
           return@setOnMenuItemClickListener true
         }
       }

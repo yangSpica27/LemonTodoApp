@@ -1,20 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/blue_7"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent">
 
-    <TextView
+    <com.google.android.material.appbar.MaterialToolbar
+        style="@style/ToolbarStyle"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="敬请期待！"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:titleTextColor="@color/white_smoke"
+        app:menu="@menu/modify_schedule"
+        app:title="柠檬Todo" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_half_rounded_light"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingStart="12dp"
+                android:gravity="center_vertical"
+                android:paddingEnd="12dp">
+
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/is_done"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="@color/coral"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:text="今天，6月27日"
+                    app:useMaterialThemeColors="true" />
+
+                <ImageView
+                    android:id="@+id/btn_flag"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_flag" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:paddingTop="8dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:lines="1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:maxLength="20"
+                android:paddingBottom="8dp"
+                android:hint="你准备做什么" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:paddingTop="8dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:lines="1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:maxLength="20"
+                android:paddingBottom="8dp"
+                android:hint="描述" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_child_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                android:nestedScrollingEnabled="false" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
