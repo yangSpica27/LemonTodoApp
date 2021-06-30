@@ -1,6 +1,5 @@
 package spica.lemon.plan.di
 
-import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,7 +37,6 @@ object NetworkModule {
       .client(okHttpClient)
       .baseUrl("http://192.168.43.81//back/")
       .addConverterFactory(MoshiConverterFactory.create())
-      .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory())
       .build()
   }
 

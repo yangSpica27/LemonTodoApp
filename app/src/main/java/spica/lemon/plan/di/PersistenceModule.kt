@@ -8,6 +8,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import spica.lemon.plan.persistence.AppDatabase
+import spica.lemon.plan.persistence.dao.ScheduleDao
+import spica.lemon.plan.persistence.dao.UserDao
 import javax.inject.Singleton
 
 /**
@@ -33,5 +35,19 @@ object PersistenceModule {
             .fallbackToDestructiveMigration()
             .build()
     }
+
+
+    @Provides
+    @Singleton
+    fun provideScheduleDao(appDatabase: AppDatabase): ScheduleDao {
+        return appDatabase.scheduleDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserDao(appDatabase: AppDatabase): UserDao {
+        return appDatabase.userDao()
+    }
+
 
 }

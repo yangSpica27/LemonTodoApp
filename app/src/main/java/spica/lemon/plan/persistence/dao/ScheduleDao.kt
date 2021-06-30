@@ -12,15 +12,13 @@ import spica.lemon.plan.persistence.ChildScheduleConverts
 interface ScheduleDao {
 
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSchedule(schedule: Schedule)
 
 
     @Delete
     suspend fun deleteSchedule(schedule: Schedule)
 
-    @Update
-    suspend fun updateSchedule(schedule: Schedule)
 
     @Insert
     suspend fun insertAll(list: List<Schedule>)
@@ -29,13 +27,18 @@ interface ScheduleDao {
     @Query("DELETE FROM schedule")
     suspend fun deleteAll()
 
-//
-//    @Query("SELECT * FROM schedule WHERE date = :date")
-//    fun getScheduleByDate(date: String): Flow<List<Schedule>>
-//
-//
-//    @ExperimentalCoroutinesApi
-//    fun getAllUntilChanged(date: String) = getScheduleByDate(date).distinctUntilChanged()
+
+    @Query("SELECT * FROM schedule WHERE date = :date")
+    fun getScheduleByDate(date: String): Flow<List<Schedule>>
+
+
+    @Query("SELECT * FROM schedule WHERE id =:id")
+    fun getScheduleById(id:Long):Flow<Schedule>
+
+
+
+    @ExperimentalCoroutinesApi
+    fun getAllUntilChanged(date: String) = getScheduleByDate(date).distinctUntilChanged()
 
 
 }

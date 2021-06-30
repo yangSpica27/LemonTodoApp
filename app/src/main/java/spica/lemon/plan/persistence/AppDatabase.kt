@@ -11,7 +11,7 @@ import spica.lemon.plan.persistence.dao.UserDao
 @Database(entities = [Schedule::class, User::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-//    abstract fun scheduleDao(): ScheduleDao
+    abstract fun scheduleDao(): ScheduleDao
 
 
     abstract fun userDao():UserDao
