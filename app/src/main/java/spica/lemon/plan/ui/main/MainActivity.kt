@@ -16,50 +16,55 @@ import spica.lemon.plan.ui.modifyplan.ModifyScheduleActivity
 class MainActivity : BindingActivity<ActivityMainBinding>() {
 
 
-  override fun initializer() {
+    override fun initializer() {
 
-    with(viewBinding.mainViewpager) {
-      adapter = MainPagerAdapter(this@MainActivity)
-      orientation = ViewPager2.ORIENTATION_HORIZONTAL
-      offscreenPageLimit = 3
-      isUserInputEnabled = false
-    }
-
-    viewBinding.bottomNavBar.setOnNavigationItemSelectedListener {
-      when (it.itemId) {
-        R.id.nav_home -> {
-          viewBinding.fabPlus.show()
-          viewBinding.mainViewpager.currentItem = MainPagerAdapter.HOME
-          return@setOnNavigationItemSelectedListener true
-        }
-        R.id.nav_dashboard -> {
-          viewBinding.mainViewpager.currentItem = MainPagerAdapter.GALLERY
-          viewBinding.fabPlus.hide()
-          return@setOnNavigationItemSelectedListener true
+        with(viewBinding.mainViewpager) {
+            adapter = MainPagerAdapter(this@MainActivity)
+            orientation = ViewPager2.ORIENTATION_HORIZONTAL
+            offscreenPageLimit = 3
+            isUserInputEnabled = false
         }
 
-        R.id.nav_profile -> {
-          viewBinding.mainViewpager.currentItem = MainPagerAdapter.PROFILE
-          viewBinding.fabPlus.hide()
-          return@setOnNavigationItemSelectedListener true
+        viewBinding.bottomNavBar.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_home -> {
+                    viewBinding.fabPlus.show()
+                    viewBinding.mainViewpager.currentItem = MainPagerAdapter.HOME
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.nav_dashboard -> {
+                    viewBinding.mainViewpager.currentItem = MainPagerAdapter.GALLERY
+                    viewBinding.fabPlus.hide()
+                    return@setOnNavigationItemSelectedListener true
+                }
+
+                R.id.nav_profile -> {
+                    viewBinding.mainViewpager.currentItem = MainPagerAdapter.PROFILE
+                    viewBinding.fabPlus.hide()
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.nav_search ->{
+                    viewBinding.mainViewpager.currentItem = MainPagerAdapter.SEARCH
+                    viewBinding.fabPlus.hide()
+                    return@setOnNavigationItemSelectedListener true
+                }
+            }
+            return@setOnNavigationItemSelectedListener false
         }
-      }
-      return@setOnNavigationItemSelectedListener false
+
+        viewBinding.fabPlus.setOnClickListener {
+            ModifyScheduleActivity.startActivity(viewBinding.fabPlus, this)
+        }
+
     }
 
-    viewBinding.fabPlus.setOnClickListener {
-      ModifyScheduleActivity.startActivity(viewBinding.fabPlus,this)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
-  }
-
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-  }
-
-  override fun setupViewBinding(inflater: LayoutInflater):
-      ActivityMainBinding = ActivityMainBinding.inflate(inflater)
+    override fun setupViewBinding(inflater: LayoutInflater):
+            ActivityMainBinding = ActivityMainBinding.inflate(inflater)
 
 
 }
