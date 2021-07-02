@@ -19,7 +19,7 @@ class ChildScheduleDelegate : ItemViewDelegate<ScheduleItem, ChildScheduleDelega
 
     override fun onBindViewHolder(holder: ViewHolder, item: ScheduleItem) {
         holder.itemBinding.checkbox.isChecked = item.hasDone
-        holder.itemBinding.tvDesc.text = item.info
+        holder.itemBinding.tvDesc.setText(item.info)
     }
 
     override fun onCreateViewHolder(context: Context, parent: ViewGroup): ViewHolder {

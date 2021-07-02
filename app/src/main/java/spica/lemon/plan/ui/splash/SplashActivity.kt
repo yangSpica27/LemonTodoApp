@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.gyf.immersionbar.ktx.immersionBar
+import dagger.hilt.android.AndroidEntryPoint
 import spica.lemon.plan.R
 import spica.lemon.plan.base.BindingActivity
 import spica.lemon.plan.databinding.ActivitySplashBinding
@@ -23,6 +24,7 @@ private const val FAR_DISTANCE = 600
 /**
  * 欢迎页
  */
+@AndroidEntryPoint
 class SplashActivity : BindingActivity<ActivitySplashBinding>() {
 
   lateinit var context: Context

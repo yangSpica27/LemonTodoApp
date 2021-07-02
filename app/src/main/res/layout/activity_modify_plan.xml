@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_7"
+
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -20,7 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@drawable/bg_half_rounded_light">
+        android:background="@drawable/bg_half_rounded_light"
+        android:backgroundTint="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,29 +39,86 @@
                 android:paddingEnd="12dp">
 
                 <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/is_done"
+                    android:id="@+id/ck_has_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_date"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="今天，6月27日"
+                    android:text="2021年 7月2日"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                     android:textColor="@color/coral"
-                    android:textStyle="bold"
-                    app:useMaterialThemeColors="true" />
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/btn_flag"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_flag" />
+                    android:background="@color/black" />
 
             </LinearLayout>
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="8dp"
+                app:checkedButton="@id/btn_lv0"
+                app:singleSelection="true">
+
+                <Button
+                    android:id="@+id/btn_lv0"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="无优先级"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+                <Button
+                    android:id="@+id/btn_lv1"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="低优先级"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+                <Button
+                    android:id="@+id/btn_lv2"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="中优先级"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+                <Button
+                    android:id="@+id/btn_lv3"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="高优先级"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:hint="你准备做什么"
+                android:hint="你准备做什么?"
                 android:lines="1"
                 android:maxLength="20"
                 android:paddingStart="12dp"
@@ -72,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:gravity="start"
-                android:hint="描述"
+                android:hint="描述.."
                 android:minHeight="100dp"
                 android:paddingStart="12dp"
                 android:paddingTop="8dp"
@@ -80,13 +140,28 @@
                 android:paddingBottom="8dp"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="创建子任务" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_child_schedule"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_round_all"
+                android:backgroundTint="@color/white_smoke"
                 android:nestedScrollingEnabled="false"
                 android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="12"
+                tools:listitem="@layout/item_child_schedule" />
 
         </LinearLayout>
 

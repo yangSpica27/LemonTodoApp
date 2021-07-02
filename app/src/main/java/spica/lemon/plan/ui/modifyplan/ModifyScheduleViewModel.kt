@@ -18,7 +18,7 @@ class ModifyScheduleViewModel @Inject constructor(private val scheduleDao: Sched
     private lateinit var _scheduleLiveData: LiveData<Schedule?>
 
 
-    val scheduleLiveData: LiveData<Schedule?> get() = _scheduleLiveData
+
 
     //保存
     fun saveSchedule(schedule: Schedule) {

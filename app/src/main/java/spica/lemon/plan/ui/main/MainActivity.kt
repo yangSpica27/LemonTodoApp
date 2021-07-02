@@ -2,8 +2,8 @@ package spica.lemon.plan.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
 import androidx.viewpager2.widget.ViewPager2
+import dagger.hilt.android.AndroidEntryPoint
 import spica.lemon.plan.R
 import spica.lemon.plan.base.BindingActivity
 import spica.lemon.plan.databinding.ActivityMainBinding
@@ -12,6 +12,7 @@ import spica.lemon.plan.ui.modifyplan.ModifyScheduleActivity
 /**
  * 主页容器
  */
+@AndroidEntryPoint
 class MainActivity : BindingActivity<ActivityMainBinding>() {
 
 

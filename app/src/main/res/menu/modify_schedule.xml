@@ -5,8 +5,9 @@
 
     <item
         android:id="@+id/action_folder"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:iconTint="@color/white_smoke"
+        android:visible="true"
         android:icon="@drawable/ic_plus"
         android:title="plus" />
 
@@ -15,6 +16,6 @@
         android:title="@string/action_settings"
         android:iconTint="@color/white_smoke"
         android:icon="@drawable/ic_config"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
 </menu>
