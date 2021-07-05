@@ -95,15 +95,22 @@ class GalleryWeekView(context: Context) : WeekView(context) {
         when {
             isSelected -> {
                 canvas.drawText(
-                    calendar.day.toString(), cx.toFloat(), mTextBaseLine + top,
+                    calendar.day.toString(), cx.toFloat(),
+                    mTextBaseLine + top,
                     mSelectTextPaint
                 )
                 canvas.drawText(
                     calendar.lunar,
                     cx.toFloat(),
-                    mTextBaseLine + mItemHeight / 10,
+                    mTextBaseLine +
+                            mItemHeight / 10,
                     mSelectedLunarTextPaint
                 )
+
+                val fm: Paint.FontMetrics = mSelectedLunarTextPaint.fontMetrics
+
+
+
             }
             hasScheme -> {
                 canvas.drawText(

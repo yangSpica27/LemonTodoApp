@@ -1,13 +1,12 @@
 package spica.lemon.plan.view
 
 import android.content.Context
-import android.graphics.BlurMaskFilter
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.Rect
+import android.graphics.*
+import android.text.TextPaint
 import com.haibin.calendarview.Calendar
 import com.haibin.calendarview.MonthView
 import spica.lemon.plan.tools.dp
+import spica.lemon.plan.tools.sp
 
 @Suppress("unused")
 class GalleryMonthView(context: Context) : MonthView(context) {
@@ -32,15 +31,34 @@ class GalleryMonthView(context: Context) : MonthView(context) {
     isFakeBoldText = true
   }
 
+
+  private val descriptionTextPaint = TextPaint().apply {
+    color = Color.GRAY
+    textSize = 14.sp.toFloat()
+  }
+
+
   init {
     setLayerType(LAYER_TYPE_SOFTWARE, mSchemeBasicPaint)
     mSelectedPaint.maskFilter = BlurMaskFilter(32F, BlurMaskFilter.Blur.SOLID)
   }
 
 
-  override fun onDrawSelected(canvas: Canvas, calendar: Calendar, x: Int, y: Int, hasScheme: Boolean): Boolean {
+  override fun onDrawSelected(
+    canvas: Canvas,
+    calendar: Calendar,
+    x: Int,
+    y: Int,
+    hasScheme: Boolean
+  ): Boolean {
     mSelectedPaint.style = Paint.Style.FILL
-    canvas.drawRect(x.toFloat(), y.toFloat(), (x + mItemWidth).toFloat(), (y + mItemHeight).toFloat(), mSelectedPaint)
+    canvas.drawRect(
+      x.toFloat(),
+      y.toFloat(),
+      (x + mItemWidth).toFloat(),
+      (y + mItemHeight).toFloat(),
+      mSelectedPaint
+    )
     return true
   }
 
@@ -88,10 +106,22 @@ class GalleryMonthView(context: Context) : MonthView(context) {
           mSelectTextPaint
         )
         canvas.drawText(
-          calendar.lunar, cx.toFloat(),
+          calendar.lunar,
+          cx.toFloat(),
           (y + rect.height() + rect2.height() + dayTextTopPadding + lunarTextPadding).toFloat(),
           mSelectedLunarTextPaint
         )
+
+        val desc = "有10个任务"
+        val fontMetrics = descriptionTextPaint.fontMetrics;
+        val fontHeight = (fontMetrics.descent - fontMetrics.ascent)
+        canvas.drawText(
+          desc,
+          cx.toFloat(),
+          (y + rect.height() + rect2.height() + dayTextTopPadding + lunarTextPadding + fontHeight),
+          mSchemeLunarTextPaint
+        )
+
       }
       hasScheme -> {
         canvas.drawText(
