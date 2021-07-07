@@ -28,4 +28,9 @@ class ChildScheduleDelegate : ItemViewDelegate<ScheduleItem, ChildScheduleDelega
         return ViewHolder(itemBinding = itemBinding)
     }
 
+
+    override fun getItemId(item: ScheduleItem): Long {
+        return item.createTime
+    }
+
 }

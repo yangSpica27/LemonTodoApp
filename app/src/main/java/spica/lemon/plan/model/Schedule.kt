@@ -11,14 +11,14 @@ import spica.lemon.plan.persistence.ChildScheduleConverts
 @Entity
 @TypeConverters(ChildScheduleConverts::class)
 data class Schedule(
-  @PrimaryKey(autoGenerate = true)
-  var id: Long? = null,//自动生成的id
-  var title: String = "标题",//标题
-  var description: String = "",//描述
-  var hasDone: Boolean = false,//是否完成
-  var label: String = "普通任务",//标签
-  var labelColor: Int,//标签颜色
-  var childSchedules: List<ScheduleItem>,//子任务
-  var lv: Int = 0,//重要等级
-  var date: String //时间
+    @PrimaryKey(autoGenerate = true)
+    var id: Long? = null,//自动生成的id
+    var title: String = "标题",//标题
+    var description: String = "",//描述
+    var hasDone: Boolean = false,//是否完成
+    var label: String = "普通任务",//标签
+    var labelColor: Int = 0xFF000000.toInt(),//标签颜色
+    var childSchedules: MutableList<ScheduleItem> = mutableListOf(),//子任务
+    var lv: Int = 0,//重要等级
+    var date: Long = 0 //时间
 )

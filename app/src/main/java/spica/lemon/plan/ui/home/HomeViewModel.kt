@@ -18,7 +18,7 @@ class HomeViewModel : ViewModel() {
                 hasDone = false,
                 labelColor = 0xFF,
                 lv = 0,
-                date = "2021-01-01 12:00"
+                date = 0
             ),
             Schedule(
                 id = 0L,
@@ -29,7 +29,7 @@ class HomeViewModel : ViewModel() {
                 hasDone = false,
                 labelColor = 0xFF,
                 lv = 0,
-                date = "2021-01-01 12:00"
+                date = 0
             ),
             Schedule(
                 id = 0L,
@@ -40,7 +40,7 @@ class HomeViewModel : ViewModel() {
                 hasDone = false,
                 labelColor = 0xFF,
                 lv = 0,
-                date = "2021-01-01 12:00"
+                date = 0
             ),
             Schedule(
                 id = 0L,
@@ -51,7 +51,7 @@ class HomeViewModel : ViewModel() {
                 hasDone = false,
                 labelColor = 0xFF,
                 lv = 0,
-                date = "2021-01-01 12:00"
+                date = 0
             ),
             Schedule(
                 id = 0L,
@@ -62,7 +62,7 @@ class HomeViewModel : ViewModel() {
                 hasDone = false,
                 labelColor = 0xFF,
                 lv = 0,
-                date = "2021-01-01 12:00"
+                date = 0
             ),
             Schedule(
                 id = 0L,
@@ -73,7 +73,7 @@ class HomeViewModel : ViewModel() {
                 hasDone = false,
                 labelColor = 0xFF,
                 lv = 0,
-                date = "2021-01-01 12:00"
+                date = 0
             )
 
         )
