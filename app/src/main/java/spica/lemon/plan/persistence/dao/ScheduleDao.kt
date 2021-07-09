@@ -1,5 +1,6 @@
 package spica.lemon.plan.persistence.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
@@ -33,7 +34,7 @@ interface ScheduleDao {
 
 
     @Query("SELECT * FROM schedule WHERE id =:id")
-    fun getScheduleById(id:Long):Flow<Schedule>
+    fun getScheduleById(id:Long):LiveData<Schedule>
 
 
 

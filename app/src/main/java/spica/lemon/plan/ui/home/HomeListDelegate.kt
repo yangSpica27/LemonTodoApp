@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.ItemViewDelegate
 import spica.lemon.plan.databinding.ItemScheduleBinding
 import spica.lemon.plan.model.Schedule
-import spica.lemon.plan.ui.modifyplan.ModifyScheduleActivity
+import spica.lemon.plan.ui.modifyplan.CreateScheduleActivity
 
 /**
  * 主页列表
@@ -21,7 +21,7 @@ class HomeListDelegate(private val activity: Activity) : ItemViewDelegate<Schedu
     holder.binding.textTag.text = item.label
     holder.binding.textSchedule.text = item.description
     holder.binding.root.setOnClickListener {
-      ModifyScheduleActivity.startActivity(it, activity)
+      CreateScheduleActivity.startActivity(it, activity)
     }
   }
 

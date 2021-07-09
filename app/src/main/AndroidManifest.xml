@@ -4,34 +4,36 @@
     package="spica.lemon.plan">
 
     <application
-        android:theme="@style/Theme.LemonTodo"
-        android:allowBackup="false"
         android:name=".App"
-        android:resizeableActivity="true"
+        android:allowBackup="false"
         android:icon="@drawable/ic_schedule"
         android:label="@string/app_name"
-        android:supportsRtl="true">
+        android:resizeableActivity="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LemonTodo">
         <!--适配华为（huawei）刘海屏-->
         <meta-data
             android:name="android.notch_support"
-            android:value="true"/>
+            android:value="true" />
         <!--适配小米（xiaomi）刘海屏-->
         <meta-data
             android:name="notch.config"
             android:value="portrait|landscape" />
 
         <activity
-            android:theme="@style/Theme.LemonTodo.NoActionBar"
             android:name=".ui.main.MainActivity"
             android:exported="true"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/Theme.LemonTodo.NoActionBar">
+
         </activity>
         <activity
+            android:name=".ui.modifyplan.CreateScheduleActivity"
             android:theme="@style/Theme.LemonTodo.NoActionBar"
-            android:name=".ui.modifyplan.ModifyScheduleActivity" />
+            android:windowSoftInputMode="adjustNothing" />
         <activity
-            android:theme="@style/Theme.LemonTodo.NoActionBar"
-            android:name=".ui.splash.SplashActivity">
+            android:name=".ui.splash.SplashActivity"
+            android:theme="@style/Theme.LemonTodo.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

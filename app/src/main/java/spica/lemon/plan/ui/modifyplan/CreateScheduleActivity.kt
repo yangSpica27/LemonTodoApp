@@ -1,10 +1,13 @@
 package spica.lemon.plan.ui.modifyplan
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.ActivityOptions
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
+import android.view.View
 import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.color.colorChooser
 import com.afollestad.materialdialogs.datetime.datePicker
@@ -14,30 +17,28 @@ import com.drakeet.multitype.MultiTypeAdapter
 import com.fondesa.recyclerviewdivider.dividerBuilder
 import com.gyf.immersionbar.ktx.immersionBar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import spica.lemon.plan.R
 import spica.lemon.plan.base.BindingActivity
 import spica.lemon.plan.databinding.ActivityModifyPlanBinding
 import spica.lemon.plan.model.Schedule
 import spica.lemon.plan.model.ScheduleItem
+import spica.lemon.plan.tools.FluidContentResizer
 import spica.lemon.plan.tools.dp
 import java.text.SimpleDateFormat
 import java.util.*
 
-const val SCHEDULE_ID_KEY = "SCHEDULE_ID_KEY"
 
+/**
+ * 自定义计划内容
+ */
 @AndroidEntryPoint
-class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
-
-
-    private val viewModel: ModifyScheduleViewModel by viewModels()
+class CreateScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
 
     //子计划的适配器
     private lateinit var childScheduleAdapter: MultiTypeAdapter
 
     //计划
-    private lateinit var schedule: Schedule
+    private val schedule: Schedule = Schedule()
 
     //时间选择器
     private lateinit var datePickDialog: MaterialDialog
@@ -45,8 +46,10 @@ class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
     //子item编辑Dialog
     private lateinit var childScheduleInputDialog: MaterialDialog
 
-    //颜色选择器
-    private lateinit var colorPickDialog: MaterialDialog
+
+    @SuppressLint("SimpleDateFormat")
+    val sdf = SimpleDateFormat("yyyy年   MM月dd日")
+
 
     //标签的颜色集合
     private val labelColors = intArrayOf(
@@ -57,12 +60,14 @@ class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
     )
 
 
-    @SuppressLint("SimpleDateFormat")
-    val sdf = SimpleDateFormat("yyyy年   MM月dd日")
+    private lateinit var colorPickDialog: MaterialDialog
 
 
-    //init
+    private val viewModel by viewModels<ModifyScheduleViewModel>()
+
+
     override fun initializer() {
+        FluidContentResizer.listen(this)
         initStatusBar()
         initToolbar()
         initData()
@@ -72,16 +77,6 @@ class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
         initRecyclerView()
     }
 
-
-    //从数据库中读取完整数据
-    private fun initData() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            viewModel.getSchedule(intent.getLongExtra(SCHEDULE_ID_KEY, 0))
-            viewModel.scheduleDetails.observe(this@ModifyScheduleActivity) {
-                this@ModifyScheduleActivity.schedule = it
-            }
-        }
-    }
 
     //初始化状态栏
     private fun initStatusBar() {
@@ -128,10 +123,19 @@ class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
                 viewBinding.tvDate.text = sdf.format(datetime.time)
                 dialog.dismiss()
             }
-            lifecycleOwner(this@ModifyScheduleActivity)
+            lifecycleOwner(this@CreateScheduleActivity)
         }
         viewBinding.tvDate.setOnClickListener {
             datePickDialog.show()
+        }
+    }
+
+
+    companion object {
+        fun startActivity(startView: View, context: Activity) {
+            val intent = Intent(context, CreateScheduleActivity::class.java)
+            val bundle = ActivityOptions.makeSceneTransitionAnimation(context).toBundle()
+            context.startActivity(intent, bundle)
         }
     }
 
@@ -155,8 +159,8 @@ class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
     private fun initChildScheduleInputDialog() {
         childScheduleInputDialog = MaterialDialog(this)
         with(childScheduleInputDialog) {
-            lifecycleOwner(this@ModifyScheduleActivity)
-            input { dialog, text ->
+            lifecycleOwner(this@CreateScheduleActivity)
+            input() { dialog, text ->
                 run {
                     if (text.isNotEmpty()) {
                         schedule.childSchedules.add(
@@ -166,7 +170,9 @@ class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
                                 createTime = Calendar.getInstance().timeInMillis
                             )
                         )
+
                         childScheduleAdapter.notifyDataSetChanged()
+
                     }
                     dialog.dismiss()
                 }
@@ -178,7 +184,14 @@ class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
     }
 
 
+    //绑定数据
+    private fun initData() {
+
+    }
+
+
     override fun setupViewBinding(inflater: LayoutInflater): ActivityModifyPlanBinding =
         ActivityModifyPlanBinding.inflate(inflater)
+
 
 }

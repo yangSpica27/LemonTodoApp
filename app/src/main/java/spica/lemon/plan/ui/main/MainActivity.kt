@@ -7,7 +7,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import spica.lemon.plan.R
 import spica.lemon.plan.base.BindingActivity
 import spica.lemon.plan.databinding.ActivityMainBinding
-import spica.lemon.plan.ui.modifyplan.ModifyScheduleActivity
+import spica.lemon.plan.ui.modifyplan.CreateScheduleActivity
 
 /**
  * 主页容器
@@ -53,7 +53,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
         }
 
         viewBinding.fabPlus.setOnClickListener {
-            ModifyScheduleActivity.startActivity(viewBinding.fabPlus, this)
+            CreateScheduleActivity.startActivity(viewBinding.fabPlus, this)
         }
 
     }
