@@ -3,6 +3,7 @@ package spica.lemon.plan.tools
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.app.Activity
+import android.util.Log
 import android.view.View
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 
@@ -11,9 +12,11 @@ object FluidContentResizer {
     private var heightAnimator: ValueAnimator = ObjectAnimator()
 
     fun listen(activity: Activity) {
+        Log.e("绑定++++：", "1")
         val viewHolder = ActivityViewHolder.createFrom(activity)
-
+        Log.e("绑定++++：", "2")
         KeyboardVisibilityDetector.listen(viewHolder) {
+            Log.e("检测到键盘状态变化u：", "${it.visible}")
             animateHeight(viewHolder, it)
         }
         viewHolder.onDetach {
@@ -29,8 +32,11 @@ object FluidContentResizer {
         heightAnimator.cancel()
         heightAnimator = ObjectAnimator.ofInt(event.contentHeightBeforeResize, event.contentHeight)
         heightAnimator.interpolator = FastOutSlowInInterpolator()
-        heightAnimator.duration = 300
-        heightAnimator.addUpdateListener { contentView.setHeight(it.animatedValue as Int) }
+        heightAnimator.duration = 300L
+        heightAnimator.addUpdateListener {
+            Log.e("anim：", "${it.animatedValue as Int}%")
+            contentView.setHeight(it.animatedValue as Int)
+        }
         heightAnimator.start()
     }
 

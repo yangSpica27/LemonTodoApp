@@ -160,7 +160,7 @@ class CreateScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
         childScheduleInputDialog = MaterialDialog(this)
         with(childScheduleInputDialog) {
             lifecycleOwner(this@CreateScheduleActivity)
-            input() { dialog, text ->
+            input { dialog, text ->
                 run {
                     if (text.isNotEmpty()) {
                         schedule.childSchedules.add(

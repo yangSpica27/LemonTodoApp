@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:resizeableActivity="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LemonTodo">
+        android:theme="@style/Theme.LemonTodo"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <!--适配华为（huawei）刘海屏-->
         <meta-data
             android:name="android.notch_support"
@@ -24,13 +25,12 @@
             android:name=".ui.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.LemonTodo.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.LemonTodo.NoActionBar"/>
         <activity
             android:name=".ui.modifyplan.CreateScheduleActivity"
             android:theme="@style/Theme.LemonTodo.NoActionBar"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustResize" />
+
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/Theme.LemonTodo.NoActionBar">
@@ -40,6 +40,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.modifyplan.ModifyScheduleActivity" />
         <!--用于初始化-->
         <provider
             android:name="androidx.startup.InitializationProvider"
