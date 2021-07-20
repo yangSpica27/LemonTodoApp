@@ -8,31 +8,36 @@ import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.ItemViewDelegate
 import spica.lemon.plan.databinding.ItemScheduleBinding
 import spica.lemon.plan.model.Schedule
-import spica.lemon.plan.ui.modifyplan.CreateScheduleActivity
+import spica.lemon.plan.ui.modifyplan.ModifyScheduleActivity
 
 /**
  * 主页列表
  */
-class HomeListDelegate(private val activity: Activity) : ItemViewDelegate<Schedule, HomeListDelegate.ViewHolder>() {
+class HomeListDelegate(private val activity: Activity) :
+    ItemViewDelegate<Schedule, HomeListDelegate.ViewHolder>() {
 
-  class ViewHolder(val binding: ItemScheduleBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: ItemScheduleBinding) : RecyclerView.ViewHolder(binding.root)
 
-  override fun onBindViewHolder(holder: ViewHolder, item: Schedule) {
-    holder.binding.textTag.text = item.label
-    holder.binding.textSchedule.text = item.description
-    holder.binding.root.setOnClickListener {
-      CreateScheduleActivity.startActivity(it, activity)
+    override fun onBindViewHolder(holder: ViewHolder, item: Schedule) {
+        holder.binding.textTag.text = item.label
+        holder.binding.textSchedule.text = item.description
+        holder.binding.root.setOnClickListener {
+            ModifyScheduleActivity.startActivity(
+                holder.binding.root,
+                activity,
+                item.id ?: 0L
+            )
+        }
     }
-  }
 
-  override fun onCreateViewHolder(context: Context, parent: ViewGroup): ViewHolder {
-    val binding = ItemScheduleBinding.inflate(LayoutInflater.from(context), parent, false)
-    return ViewHolder(binding)
-  }
+    override fun onCreateViewHolder(context: Context, parent: ViewGroup): ViewHolder {
+        val binding = ItemScheduleBinding.inflate(LayoutInflater.from(context), parent, false)
+        return ViewHolder(binding)
+    }
 
-  override fun getItemId(item: Schedule): Long {
-    return item.id ?: 100L;
-  }
+    override fun getItemId(item: Schedule): Long {
+        return item.id ?: 100L;
+    }
 }
 
 

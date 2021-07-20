@@ -1,6 +1,8 @@
 package spica.lemon.plan.ui.home
 
-import android.view.*
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.bottomsheets.BottomSheet
@@ -14,6 +16,7 @@ import spica.lemon.plan.base.BaseFragment
 import spica.lemon.plan.databinding.FragmentHomeBinding
 import spica.lemon.plan.databinding.LayoutFolderBinding
 import spica.lemon.plan.model.Schedule
+
 
 /**
  * 主页
@@ -30,6 +33,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private lateinit var folderDialog: MaterialDialog
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
+    }
 
     private val moreSettingDialog: MaterialDialog by lazy {
         MaterialDialog(requireContext()).apply {

@@ -66,6 +66,7 @@ class CreateScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
     private val viewModel by viewModels<ModifyScheduleViewModel>()
 
 
+
     override fun initializer() {
         FluidContentResizer.listen(this)
         initStatusBar()
@@ -170,9 +171,7 @@ class CreateScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
                                 createTime = Calendar.getInstance().timeInMillis
                             )
                         )
-
                         childScheduleAdapter.notifyDataSetChanged()
-
                     }
                     dialog.dismiss()
                 }

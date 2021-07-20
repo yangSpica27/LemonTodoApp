@@ -9,12 +9,12 @@ import spica.lemon.plan.databinding.FragmentSecondBinding
 
 class SecondFragment : BaseFragment<FragmentSecondBinding>() {
 
-    override fun setupViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentSecondBinding =
+    override fun setupViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentSecondBinding =
         FragmentSecondBinding.inflate(inflater, container, false)
 
-    override fun init() {
-
-    }
-
+    override fun init() = Unit
 
 }

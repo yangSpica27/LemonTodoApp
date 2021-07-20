@@ -1,8 +1,13 @@
 package spica.lemon.plan.ui.modifyplan
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.ActivityOptions
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.MaterialDialog
@@ -56,10 +61,28 @@ class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
         0xFFd4a880.toInt()
     )
 
+    private var scheduleId = 0
+
 
     @SuppressLint("SimpleDateFormat")
     val sdf = SimpleDateFormat("yyyy年   MM月dd日")
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+//        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+//        findViewById<View>(android.R.id.content).transitionName = "shared_element_container"
+//        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+//        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+//        window.sharedElementEnterTransition = MaterialContainerTransform().apply {
+//            addTarget(android.R.id.content)
+//            duration = 300L
+//        }
+//        window.sharedElementReturnTransition = MaterialContainerTransform().apply {
+//            addTarget(android.R.id.content)
+//            duration = 250L
+//        }
+        super.onCreate(savedInstanceState)
+    }
 
     //init
     override fun initializer() {
@@ -95,10 +118,24 @@ class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
     //初始化工具栏
     private fun initToolbar() {
         viewBinding.toolbar.setOnMenuItemClickListener {
-
             return@setOnMenuItemClickListener false
         }
     }
+
+
+    companion object {
+        fun startActivity(startView: View, context: Activity, id: Long) {
+            val intent = Intent(context, CreateScheduleActivity::class.java)
+            intent.putExtra(SCHEDULE_ID_KEY, id)
+            val options = ActivityOptions.makeSceneTransitionAnimation(
+                context,
+                startView,
+                "shared_element_container" // The transition name to be matched in Activity B.
+            )
+            context.startActivity(intent, options.toBundle())
+        }
+    }
+
 
     //初始化颜色选择窗口
     private fun initColorPickDialog() {

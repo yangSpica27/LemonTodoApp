@@ -16,6 +16,8 @@ import spica.lemon.plan.ui.modifyplan.CreateScheduleActivity
 class MainActivity : BindingActivity<ActivityMainBinding>() {
 
 
+
+
     override fun initializer() {
 
         with(viewBinding.mainViewpager) {
