@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/container"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_7"
-    tools:context=".ui.home.HomeFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeFragment">
 
-    <LinearLayout
-        android:id="@+id/toolbar_layout"
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        style="@style/ToolbarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp">
+        android:padding="12dp"
+        app:menu="@menu/main"
+        app:navigationIcon="@drawable/ic_dashboard"
+        app:title="柠檬Todo"
+        app:titleTextColor="@color/white_smoke" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            style="@style/ToolbarStyle"
-            android:layout_width="match_parent"
-            android:id="@+id/toolbar"
-            android:layout_height="wrap_content"
-            app:titleTextColor="@color/white_smoke"
-            app:navigationIcon="@drawable/ic_dashboard"
-            app:menu="@menu/main"
-            app:title="柠檬Todo" />
-
-    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/contentPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_half_rounded_light"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@drawable/bg_half_rounded_light">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -49,22 +42,22 @@
                     android:id="@+id/tv_captain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:padding="24dp"
                     android:text="@string/today_task"
                     android:textColor="@color/dark_late_gray"
-                    android:textStyle="bold"
                     android:textSize="20sp"
-                    android:padding="24dp" />
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintTop_toBottomOf="@id/tv_captain"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_captain" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

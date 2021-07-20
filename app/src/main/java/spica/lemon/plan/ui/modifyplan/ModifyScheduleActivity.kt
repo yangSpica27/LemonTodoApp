@@ -61,9 +61,6 @@ class ModifyScheduleActivity : BindingActivity<ActivityModifyPlanBinding>() {
         0xFFd4a880.toInt()
     )
 
-    private var scheduleId = 0
-
-
     @SuppressLint("SimpleDateFormat")
     val sdf = SimpleDateFormat("yyyy年   MM月dd日")
 

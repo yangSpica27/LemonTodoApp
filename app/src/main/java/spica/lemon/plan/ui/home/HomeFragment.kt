@@ -2,6 +2,8 @@ package spica.lemon.plan.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.afollestad.materialdialogs.MaterialDialog
@@ -120,5 +122,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         })
     }
 
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 }

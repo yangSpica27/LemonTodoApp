@@ -44,4 +44,22 @@
         <item name="colorControlNormal">@color/white_smoke</item>
     </style>
 
+    <!-- 计划内容-->
+    <style name="scheduleTextStyle">
+        <item name="android:textColor">@color/dark_late_gray</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="maxLines">2</item>
+        <item name="android:lines">2</item>
+        <item name="fontWeight">600</item>
+    </style>
+
+    <style name="scheduleTimeTextStyle">
+        <item name="android:textColor">@color/light_gray</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="maxLines">1</item>
+        <item name="android:lines">1</item>
+    </style>
+
 </resources>
