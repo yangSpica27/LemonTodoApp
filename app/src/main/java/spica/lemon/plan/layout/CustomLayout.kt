@@ -26,6 +26,17 @@ abstract class CustomLayout @JvmOverloads constructor(
         this@CustomLayout.addView(this)
     }
 
+    protected fun <T : View> T.autoAddViewMaxWidth(
+        width: Int = matchParent,
+        height: Int = wrapContent,
+        block: T.(LayoutParams) -> Unit = {}
+    ): T = apply {
+        val mLayoutParams = LayoutParams(width, height)
+        block(mLayoutParams)
+        layoutParams = mLayoutParams
+        this@CustomLayout.addView(this)
+    }
+
     protected fun <T : View> T.autoAddView(
         size: Int,
         block: T.(LayoutParams) -> Unit = {}
